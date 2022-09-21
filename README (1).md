@@ -1,29 +1,53 @@
-# Turtlesim installation
-
 ### First of all, make sure your system is up-to-date
-ulugbekmirzabakhromov@ubuntu:~$ sudo apt update
-
+```
+sudo apt update
+```
 ### Install the turtlesim library
+```
 ulugbekmirzabakhromov@ubuntu:~$ sudo apt install ros-rolling-turtlesim
-
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
 ....
+```
 ### Check that the package is installed
+```
 ulugbekmirzabakhromov@ubuntu:~$ ros2 pkg executables turtlesim
-
 turtlesim draw_square
 turtlesim mimic
 turtlesim turtle_teleop_key
 turtlesim turtlesim_node
-
+```
 ### To start turtlesim, enter the following command in your terminal
+```
 ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtlesim_node
-
 [INFO] [1663638092.636082943] [turtlesim]: Starting turtlesim with node name /turtlesim
 [INFO] [1663638092.645975073] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+```
+[Turtlesim simulation](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png)
 
+### To control the turtle type the following command:
+```
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
+'Q' to quit.
+```
+### RQT: installation
+```bash
+#  MAKE SURE YOUR SYSTEM IS UP-TO-DATE
+ulugbekmirzabakhromov@ubuntu:~$ sudo apt update
 
+# INSTALL THE RQT LIBRARY AND ITS PLUGINS
+ulugbekmirzabakhromov@ubuntu:~$ sudo apt install ~nros-rolling-rqt*
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  pybind11-dev ros-rolling-class-loader
+  ...
 
-![Turtlesim simulation](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png)
+# Using rqt: to run rqt bu just typing rqt in the command line
+ulugbekmirzabakhromov@ubuntu:~$ rqt
