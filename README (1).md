@@ -24,7 +24,7 @@ ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtlesim_node
 [INFO] [1663638092.636082943] [turtlesim]: Starting turtlesim with node name /turtlesim
 [INFO] [1663638092.645975073] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 ```
-[Turtlesim simulation](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png)
+https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png
 
 ### To control the turtle type the following command:
 ```
