@@ -26,6 +26,7 @@ ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtlesim_node
 [INFO] [1663638092.636082943] [turtlesim]: Starting turtlesim with node name /turtlesim
 [INFO] [1663638092.645975073] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 ```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png)
 ### To control the turtle type the following command:
 ```
 ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtle_teleop_key
@@ -48,9 +49,16 @@ Reading state information... Done
 The following additional packages will be installed:
   pybind11-dev ros-rolling-class-loader
   ...
+# To run rqt by just typing command "rqt"
+ulugbekmirzabakhromov@ubuntu:~$ rqt
+```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2018.40.15.png)
 # RQT: running rqt_console
+```
 ulugbekmirzabakhromov@ubuntu:~$ ros2 run rqt_console rqt_console
 ```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2021.45.00.png)
+
 ### ROS2 Colcon
 ```bash
 # INSTALLING Colcon
