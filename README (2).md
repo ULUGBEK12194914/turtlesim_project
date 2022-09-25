@@ -127,7 +127,6 @@ Starting >>> turtlesim
 [Processing: turtlesim]                             
 [Processing: turtlesim] 
 ....
-```bash
 # SOURCE THE OVERLAY
 ulugbekmirzabakhromov@ubuntu:~$ source /opt/ros/rolling/setup.bash
 ulugbekmirzabakhromov@ubuntu:~$ cd ~/ros2_ws
@@ -152,10 +151,6 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/ros_tutorials$ cd turtlesim/src
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/ros_tutorials/turtlesim/src$ ls
 turtle.cpp  turtle_frame.cpp  turtlesim  turtlesim.cpp
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/ros_tutorials/turtlesim/src$ nano turtle_frame.cpp
+```
 
-
-
-## Screenshots
-
-![App Screenshot](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2014.03.15.png)
 
