@@ -58,7 +58,33 @@ ulugbekmirzabakhromov@ubuntu:~$ rqt
 ulugbekmirzabakhromov@ubuntu:~$ ros2 run rqt_console rqt_console
 ```
 ![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-21%20at%2021.45.00.png)
-
+### Turtlesim simulation
+```bash
+# RUN THE TURTLESIM_NODE IN A NEW TAB
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtlesim_node
+[INFO] [1664067181.891114659] [turtlesim]: Starting turtlesim with node name /turtlesim
+[INFO] [1664067181.940055496] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+# RUN THE TURTLE_TELEOP_KEY TO MOVE THE TURTLE IN A NEW TAB
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
+'Q' to quit.
+#RUN THE rqt in your terminal
+ulugbekmirzabakhromov@ubuntu:~$ rqt
+#CHANGE THE /SPAWN SERVICE PARAMETERS TO RUN TURTLE2
+#TO RUN THE TURTLE TO RUN THIS COMMAND
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
+'Q' to quit.
+```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-09-25%20at%2010.11.58.png)
+# TURTLE simulation
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Peek%202022-09-24%2018-24.gif)
 ### ROS2 Colcon
 ```bash
 # INSTALLING Colcon
