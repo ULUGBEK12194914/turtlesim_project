@@ -152,5 +152,92 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/ros_tutorials/turtlesim/src$ ls
 turtle.cpp  turtle_frame.cpp  turtlesim  turtlesim.cpp
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/ros_tutorials/turtlesim/src$ nano turtle_frame.cpp
 ```
+# Create a package
+```bash
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ ros2 pkg create --build-type ament_python --node-name my_node my_package
+going to create a new package
+package name: my_package
+destination directory: /home/ulugbekmirzabakhromov/ros2_ws/src
+package format: 3
+version: 0.0.0
+...
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ cd ..
 
+# BUILDING PACKAGES
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ colcon build            
+Summary: 3 packages finished [4.08s]
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ colcon build --packages-select my_package
+Starting >>> my_package
+Finished <<< my_package [1.14s]          
+Summary: 1 package finished [1.37s]
 
+#SOURCE THE SETUP FILE
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ . install/setup.bash
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ ros2 run my_package my_node
+Hi from my_package.
+```
+
+# Writing a publisher and subscriber(Python)
+```bash
+#MAKE SURE YOU ARE IN THE src FOLDER AND ENTER THE COMMAND FOR CREATING THE PY_PACKAGE
+ulugbekmirzabakhromov@ubuntu:~$ cd ~/ros2_ws
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ ros2 pkg create --build-type ament_python py_pubsub
+going to create a new package
+package name: py_pubsub
+destination directory: /home/ulugbekmirzabakhromov/ros2_ws/src
+package format: 3
+version: 0.0.0
+...
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ ls
+my_package  my_pkg  py_pubsub  ros_tutorials
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ wget https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+--2022-09-27 21:42:13--  https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+...
+2022-09-27 21:42:14 (11.5 MB/s) - ‘publisher_member_function.py’ saved [1576/1576]
+
+#DOWNLOAD THE publisher_member_function.py TO ros2_ws/src/py_pubsub/py_pubsub DIRECTORY
+
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_pubsub/py_pubsub$ wget https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+--2022-09-27 22:19:36--  https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+...
+2022-09-27 22:19:37 (31.7 MB/s) - ‘publisher_member_function.py’ saved [1576/1576]
+
+#ALSO DOWNLOAD THE subscriber_member_function.py 
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_pubsub/py_pubsub$ wget https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+...
+2022-09-27 21:54:36 (18.1 MB/s) - ‘subscriber_member_function.py’ saved [1469/1469]
+```
+# Build and run
+```bash
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ rosdep install -i --from-path src --rosdistro foxy -y
+#All required rosdeps installed successfully
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ colcon build --packages-select py_pubsub
+Starting >>> py_pubsub
+Finished <<< py_pubsub [2.89s]          
+
+Summary: 1 package finished [4.10s]
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ rosdep install -i --from-path src --rosdistro foxy -y
+#All required rosdeps installed successfully
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ colcon build --packages-select py_pubsub
+Starting >>> py_pubsub
+Finished <<< py_pubsub [1.41s]          
+
+Summary: 1 package finished [1.66s]
+
+---------------------------------------
+# TESTING THE NODES
+---------------------------------------
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ . install/setup.bash
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ ros2 run py_pubsub talker
+[INFO] [1664342591.577268871] [minimal_publisher]: Publishing: "Hello World: 0"
+[INFO] [1664342592.061454408] [minimal_publisher]: Publishing: "Hello World: 1"
+[INFO] [1664342592.562140724] [minimal_publisher]: Publishing: "Hello World: 2"
+[INFO] [1664342593.062828040] [minimal_publisher]: Publishing: "Hello World: 3"
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ . install/setup.bash
+ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ ros2 run py_pubsub talker
+[INFO] [1664342591.577268871] [minimal_publisher]: Publishing: "Hello World: 0"
+[INFO] [1664342592.061454408] [minimal_publisher]: Publishing: "Hello World: 1"
+[INFO] [1664342592.562140724] [minimal_publisher]: Publishing: "Hello World: 2"
+[INFO] [1664342593.062828040] [minimal_publisher]: Publishing: "Hello World: 3"
+```
