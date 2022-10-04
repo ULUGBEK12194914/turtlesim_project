@@ -243,6 +243,7 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ ros2 run py_pubsub talker
 ```
 # Writing a simple service and client(Python)
 ```bash
+
 #Firstly, create the package into the ros2_ws/src directory
 ------------------------------------------------------------
 ulugbekmirzabakhromov@ubuntu:~$ cd ros2_ws
@@ -251,14 +252,17 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src$ ros2 pkg create --build-type ament_p
 going to create a new package
 package name: py_srvcli
 ....
+
 # Write the service node inside the ros2_ws/src/py_srvcli/py_srvcli directory:
 ------------------------------------------------------------------------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_srvcli$ nano service_member_function.py
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_srvcli$ nano client_member_function.py
+
 # Add an entry points into the setup.py to be able to run the servic&client nodes.
 ----------------------------------------------------------------------------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_srvcli$ nano setup.py
-![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-04%20at%2011.20.46.png)
+![]('https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-04%20at%2011.20.46.png'
+
 # BUILD AND RUN
 ----------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ rosdep install -i --from-path src --rosdistro foxy -y
@@ -267,6 +271,7 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ colcon build --packages-select py_srvcli
 Starting >>> py_srvcli
 Finished <<< py_srvcli [2.13s]          
 Summary: 1 package finished [2.48s]
+
 # Open a new terminal, navigate to ros2_ws, and source the setup files
 ----------------------------------------------------------------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ . install/setup.bash
