@@ -261,8 +261,9 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_srvcli$ nano client_member_functio
 # Add an entry points into the setup.py to be able to run the servic&client nodes.
 ----------------------------------------------------------------------------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws/src/py_srvcli$ nano setup.py
-![]('https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-04%20at%2011.20.46.png'
-
+```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-04%20at%2011.20.46.png)
+```bash
 # BUILD AND RUN
 ----------------
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ rosdep install -i --from-path src --rosdistro foxy -y
