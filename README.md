@@ -284,4 +284,71 @@ ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ . install/setup.bash
 ulugbekmirzabakhromov@ubuntu:~/ros2_ws$ ros2 run py_srvcli client 2 3
 [INFO] [1664849371.665846561] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
 ```
+#Writing an action server and client(Python)
+```bash
+#Writing an action server
+-------------------------
+ulugbekmirzabakhromov@ubuntu:~$ nano fibonacci_action_server.py
+
+#You can get the action_server code from this link:
+---------------------------------------------------
+```
+(https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/action(server%26client)/fibonacci_action_server.py)
+
+```bash
+#Run the action server
+ulugbekmirzabakhromov@ubuntu:~$ python3 fibonacci_action_server.py 
+[INFO] [1664948740.009765307] [fibonacci_action_server]: Executing goal...
+[WARN] [1664948740.010891932] [fibonacci_action_server]: Goal state not set, assuming aborted. Goal ID: [ 43 132  59 102 136 104  68 222 136  35 140  96 233 172 179 145]
+
+#In another terminal, use the command line interface to send a goal:
+--------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 action send_goal fibonacci action_tutorials_interfaces/action/Fibonacci "{order: 5}"
+Waiting for an action server to become available...
+Sending goal:
+     order: 5
+
+Goal accepted with ID: 15197cd7683f45baa7c2facdddd31a74
+
+Result:
+    sequence:
+- 0
+- 1
+- 1
+- 2
+- 3
+- 5
+
+Goal finished with status: SUCCEEDED
+
+# Writing a action_client server
+-------------------------
+ulugbekmirzabakhromov@ubuntu:~$ nano fibonacci_action_client.py
+
+#You can get the action_client code from this link:
+---------------------------------------------------
+```
+(https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/action(server%26client)/fibonacci_action_client.py)
+
+```bash
+#Run the action client
+-----------------------
+ulugbekmirzabakhromov@ubuntu:~$ python3 fibonacci_action_client.py
+[INFO] [1664949683.787442150] [fibonacci_action_client]: Goal accepted :)
+[INFO] [1664949683.790887484] [fibonacci_action_client]: Received feedback: array('i', [0, 1, 1])
+[INFO] [1664949684.794285170] [fibonacci_action_client]: Received feedback: array('i', [0, 1, 1, 2])
+[INFO] [1664949685.796666631] [fibonacci_action_client]: Received feedback: array('i', [0, 1, 1, 2, 3])
+[INFO] [1664949686.799187578] [fibonacci_action_client]: Received feedback: array('i', [0, 1, 1, 2, 3, 5])
+....
+
+#In another terminal, run the action_server:
+--------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ python3 fibonacci_action_server.py 
+[INFO] [1664949683.788839423] [fibonacci_action_server]: Executing goal...
+[INFO] [1664949683.789502547] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+[INFO] [1664949684.792395799] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+[INFO] [1664949685.794762732] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+[INFO] [1664949686.797654565] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+....
+```
 
