@@ -351,4 +351,78 @@ ulugbekmirzabakhromov@ubuntu:~$ python3 fibonacci_action_server.py
 [INFO] [1664949686.797654565] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
 ....
 ```
+#Composing multiple nodes in a single process
+```bash
+#Discover available components
+-------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 component types
+robot_state_publisher
+  robot_state_publisher::RobotStatePublisher
+demo_nodes_cpp
+  demo_nodes_cpp::OneOffTimerNode
+  ...
+  composition::Talker
+  composition::Listener
+  composition::NodeLikeListener
+  composition::Server
+  composition::Client
+...
+```
+##Run-time composition using ROS services with a publisher and subscriber
+```bash
+#In the first shell, start the component container:
+---------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run rclcpp_components component_container
+
+#Open the second shell, start the component container:
+------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 component list
+/ComponentManager
+#Load the talker component(2nd shell)
+ulugbekmirzabakhromov@ubuntu:~$ ros2 component load /ComponentManager composition composition::Talker
+Loaded component 1 into '/ComponentManager' container node as '/talker'
+ulugbekmirzabakhromov@ubuntu:~$ ros2 component load /ComponentManager  composition composition::Listener 
+Loaded component 2 into '/ComponentManager' container node as '/listener'
+
+#Now the first shell should show a message that the component was loaded as well as repeated message for publishing a message
+-------------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run rclcpp_components component_container
+[INFO] [1665550113.843732655] [ComponentManager]: Load Library: /opt/ros/foxy/lib/libtalker_component.so
+[INFO] [1665550113.862136888] [ComponentManager]: Found class: rclcpp_components::NodeFactoryTemplate<composition::Talker>
+[INFO] [1665550113.862237852] [ComponentManager]: Instantiate class: rclcpp_components::NodeFactoryTemplate<composition::Talker>
+[INFO] [1665550114.878167506] [talker]: Publishing: 'Hello World: 1'
+[INFO] [1665550115.878149761] [talker]: Publishing: 'Hello World: 2'
+[INFO] [1665550116.877940399] [talker]: Publishing: 'Hello World: 3'
+[INFO] [1665550117.877841432] [talker]: Publishing: 'Hello World: 4'
+[INFO] [1665550118.877683620] [talker]: Publishing: 'Hello World: 5'
+[INFO] [1665550119.877550575] [talker]: Publishing: 'Hello World: 6'
+.....
+
+#Run another command in the second shell to load the listener component
+-----------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 component load /ComponentManager  composition composition::Listener 
+Loaded component 2 into '/ComponentManager' container node as '/listener'
+
+#Now the first shell should show repeated output for each received message
+---------------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ ros2 run rclcpp_components component_container
+[INFO] [1665550184.794836985] [ComponentManager]: Load Library: /opt/ros/foxy/lib/liblistener_component.so
+[INFO] [1665550184.808943962] [ComponentManager]: Found class: rclcpp_components::NodeFactoryTemplate<composition::Listener>
+[INFO] [1665550184.809249919] [ComponentManager]: Instantiate class: rclcpp_components::NodeFactoryTemplate<composition::Listener>
+[INFO] [1665550184.877423277] [talker]: Publishing: 'Hello World: 71'
+[INFO] [1665550184.877769996] [listener]: I heard: [Hello World: 71]
+[INFO] [1665550185.875934244] [talker]: Publishing: 'Hello World: 72'
+[INFO] [1665550185.876612816] [listener]: I heard: [Hello World: 72]
+[INFO] [1665550186.875510168] [talker]: Publishing: 'Hello World: 73'
+[INFO] [1665550186.876478602] [listener]: I heard: [Hello World: 73]
+[INFO] [1665550187.875740475] [talker]: Publishing: 'Hello World: 74'
+[INFO] [1665550187.876527188] [listener]: I heard: [Hello World: 74]
+[INFO] [1665550188.875847111] [talker]: Publishing: 'Hello World: 75'
+[INFO] [1665550188.876574709] [listener]: I heard: [Hello World: 75]
+....
+```
+
+
+
+  
 
