@@ -421,7 +421,28 @@ ulugbekmirzabakhromov@ubuntu:~$ ros2 run rclcpp_components component_container
 [INFO] [1665550188.876574709] [listener]: I heard: [Hello World: 75]
 ....
 ```
+#Creating a launch file
+```bash
+#Create a new directory to store launch files and write the launch file
+---------------------------------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ mkdir launch
+ulugbekmirzabakhromov@ubuntu:~$ cd launch
+ulugbekmirzabakhromov@ubuntu:~/launch$ nano turtlesim_mimic_launch.py
 
+#Run the launch file created above
+----------------------------------
+ulugbekmirzabakhromov@ubuntu:~/launch$ ros2 launch turtlesim_mimic_launch.py
+[INFO] [launch]: All log files can be found below /home/ulugbekmirzabakhromov/.ros/log/2022-10-11-23-20-59-048056-ubuntu-74002
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [turtlesim_node-1]: process started with pid [74004]
+[INFO] [turtlesim_node-2]: process started with pid [74006]
+[INFO] [mimic-3]: process started with pid [74008]
+[turtlesim_node-2] [INFO] [1665555660.604911859] [turtlesim2.sim]: Starting turtlesim with node name /turtlesim1/sim
+[turtlesim_node-1] [INFO] [1665555660.609759335] [turtlesim1.sim]: Starting turtlesim with node name /turtlesim1/sim
+[turtlesim_node-2] [INFO] [1665555660.642208649] [turtlesim2.sim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+[turtlesim_node-1] [INFO] [1665555660.645056958] [turtlesim1.sim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+```
+![](
 
 
   
