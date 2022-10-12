@@ -442,8 +442,22 @@ ulugbekmirzabakhromov@ubuntu:~/launch$ ros2 launch turtlesim_mimic_launch.py
 [turtlesim_node-2] [INFO] [1665555660.642208649] [turtlesim2.sim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 [turtlesim_node-1] [INFO] [1665555660.645056958] [turtlesim1.sim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 ```
-![](
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-12%20at%2015.28.55.png)
 
+#To see the system in action, open a new terminal and run the commands below
+```bash
+ulugbekmirzabakhromov@ubuntu:~/launch$ ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+publisher: beginning loop
+publishing #1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=-1.8))
 
-  
+publishing #2: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=-1.8))
+....
+```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/turtlesimlaunch.gif)
 
+#Introspect the sytem with rqt_graph
+```bash
+ulugbekmirzabakhromov@ubuntu:~/launch$ rqt_graph
+[INFO] [1665557607.422017603] [rclcpp]: signal_handler(signal_value=2)
+```
+![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-12%20at%2015.53.14.png)
