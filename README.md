@@ -461,3 +461,6 @@ ulugbekmirzabakhromov@ubuntu:~/launch$ rqt_graph
 [INFO] [1665557607.422017603] [rclcpp]: signal_handler(signal_value=2)
 ```
 ![](https://github.com/ULUGBEK12194914/turtlesim_project/blob/main/screenshots/Screen%20Shot%202022-10-12%20at%2015.53.14.png)
+
+#Integrating launch files into ROS 2 packages
+```bash
