@@ -464,3 +464,45 @@ ulugbekmirzabakhromov@ubuntu:~/launch$ rqt_graph
 
 #Integrating launch files into ROS 2 packages
 ```bash
+#Create a workspace for the package to live in:
+-----------------------------------------------
+ulugbekmirzabakhromov@ubuntu:~$ mkdir -p launch_ws/src
+ulugbekmirzabakhromov@ubuntu:~$ cd launch_ws/src
+ulugbekmirzabakhromov@ubuntu:~/launch_ws/src$ ros2 pkg create py_launch_example --build-type ament_python
+going to create a new package
+package name: py_launch_example
+destination directory: /home/ulugbekmirzabakhromov/launch_ws/src
+package format: 3
+version: 0.0.0
+description: TODO: Package description
+maintainer: ['ulugbekmirzabakhromov <mirzabakhromov2001@gmail.com>']
+licenses: ['TODO: License declaration']
+build type: ament_python
+dependencies: []
+...
+#Writing the launch file
+-------------------------
+ulugbekmirzabakhromov@ubuntu:~/launch_ws/src$ cd py_launch_example/
+ulugbekmirzabakhromov@ubuntu:~/launch_ws/src/py_launch_example$ ls
+package.xml  py_launch_example  resource  setup.cfg  setup.py  test
+ulugbekmirzabakhromov@ubuntu:~/launch_ws/src/py_launch_example$ nano my_script_launch.py
+
+#Build and running the launch file
+----------------------------------
+ulugbekmirzabakhromov@ubuntu:~/launch_ws$ colcon build
+Starting >>> py_launch_example
+Finished <<< py_launch_example [1.22s]          
+
+Summary: 1 package finished [1.43s]
+ulugbekmirzabakhromov@ubuntu:~/launch_ws/src/py_launch_example$ ros2 launch my_script_launch.py
+[INFO] [launch]: All log files can be found below /home/ulugbekmirzabakhromov/.ros/log/2022-10-18-02-37-36-481715-ubuntu-92643
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [talker-1]: process started with pid [92645]
+[talker-1] [INFO] [1666085857.924744749] [talker]: Publishing: 'Hello World: 1'
+[talker-1] [INFO] [1666085858.916853311] [talker]: Publishing: 'Hello World: 2'
+[talker-1] [INFO] [1666085859.908849875] [talker]: Publishing: 'Hello World: 3'
+[talker-1] [INFO] [1666085860.901022715] [talker]: Publishing: 'Hello World: 4'
+[talker-1] [INFO] [1666085861.893365115] [talker]: Publishing: 'Hello World: 5'
+[talker-1] [INFO] [1666085862.885724569] [talker]: Publishing: 'Hello World: 
+....
+```
